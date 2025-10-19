@@ -1,13 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Template, Database, Palette, Zap, Globe } from 'lucide-react'
+import { ArrowRight, Layout, Database, Palette, Zap, Globe } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 export default function HowWeBuild() {
   const steps = [
     {
-      icon: Template,
+      icon: Layout,
       title: 'Start from Proven Patterns',
       description: 'Templates and accelerators that have been battle-tested across multiple industries and use cases.',
       details: 'Pre-built workflows, proven architectures, and reusable components'
