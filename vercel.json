@@ -4,6 +4,11 @@
   "framework": "nextjs",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
+  "functions": {
+    "app/**": {
+      "maxDuration": 30
+    }
+  },
   "env": {
     "NEXT_PUBLIC_NOUPE_BOT_ID": "@noupe_bot_id"
   }
