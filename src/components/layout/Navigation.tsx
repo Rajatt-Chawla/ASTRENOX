@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import Button from '@/components/ui/Button'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,7 +26,16 @@ export default function Navigation() {
         { name: 'Intelligent Automations', href: '/intelligent-automations' }
       ]
     },
-    { name: 'Products', href: '/products' },
+    { 
+      name: 'Products', 
+      href: '/products',
+      dropdown: [
+        { name: 'Santrix — Enterprise AI Copilot', href: '/products/santrix' },
+        { name: 'Orzora — Market Research Copilot', href: '/products/orzora' },
+        { name: 'ANX Intelligence', href: '/products/anx-intelligence' },
+        { name: 'Engine V', href: '/products/engine-v' }
+      ]
+    },
     { name: 'Digital Services', href: '/consulting-modernization' },
     { name: 'Hire Talent', href: '/hire-talent' },
     { name: 'MVP Studio', href: '/mvp-studio' },
@@ -36,57 +44,52 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-med ${
-      isScrolled 
-        ? 'bg-bg-elevated/70 backdrop-blur-xl border-b border-border-soft' 
-        : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-18">
+    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 bg-black/20">
+      <div className="mx-auto max-w-7xl px-4">
+        <nav className="h-14 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="/" className="text-2xl font-bold gradient-text">
+          <a href="/" className="text-xl font-semibold tracking-[-0.02em]">
+            <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
               Astrenox
-            </a>
-          </div>
+            </span>
+          </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <div key={item.name} className="relative group">
-                  <a
-                    href={item.href}
-                    className="text-text-secondary hover:text-text-primary font-medium transition-colors duration-fast"
-                  >
-                    {item.name}
-                  </a>
-                  {item.dropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-bg-elevated border border-border-soft rounded-lg shadow-float opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-fast z-50">
-                      <div className="py-2">
-                        {item.dropdown.map((dropdownItem) => (
-                          <a
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="block px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors duration-fast"
-                          >
-                            {dropdownItem.name}
-                          </a>
-                        ))}
-                      </div>
+          <ul className="hidden md:flex items-center gap-7 text-sm">
+            {navItems.map((item) => (
+              <li key={item.name} className="relative group">
+                <a
+                  href={item.href}
+                  className="opacity-90 hover:opacity-100"
+                >
+                  {item.name}
+                </a>
+                {item.dropdown && (
+                  <div className={`absolute top-full left-0 mt-2 ${item.name === 'Products' ? 'w-72' : 'w-56'} bg-bg-elevated border border-border-soft rounded-lg shadow-float opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-fast z-50`}>
+                    <div className="py-2">
+                      {item.dropdown.map((dropdownItem) => (
+                        <a
+                          key={dropdownItem.name}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors duration-fast text-sm"
+                        >
+                          {dropdownItem.name}
+                        </a>
+                      ))}
                     </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-              <Button variant="secondary" size="sm" onClick={() => window.location.href = '/get-started'}>
-                Get Started
-              </Button>
-          </div>
+          <a
+            href="#get-started"
+            className="hidden md:block rounded-full border border-white/15 px-3.5 py-1.5 text-sm font-medium hover:bg-white/5"
+          >
+            Get Started
+          </a>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -97,7 +100,7 @@ export default function Navigation() {
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-        </div>
+        </nav>
 
         {/* Mobile Navigation */}
         {isOpen && (
@@ -129,14 +132,17 @@ export default function Navigation() {
                 </div>
               ))}
               <div className="px-3 py-2">
-                <Button variant="secondary" size="sm" className="w-full" onClick={() => window.location.href = '/get-started'}>
+                <a
+                  href="#get-started"
+                  className="block w-full text-center rounded-full border border-white/15 px-3.5 py-1.5 text-sm font-medium hover:bg-white/5"
+                >
                   Get Started
-                </Button>
+                </a>
               </div>
             </div>
           </div>
         )}
       </div>
-    </nav>
+    </header>
   )
 }

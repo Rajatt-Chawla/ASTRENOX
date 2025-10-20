@@ -73,6 +73,27 @@ export default function OurTeam() {
                 </p>
               </div>
             </div>
+
+            {/* Client Logos */}
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <div className="mx-auto grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-6">
+                {[
+                  { name: "Client 1", src: "/logos/bw/client1.svg" },
+                  { name: "Client 2", src: "/logos/bw/client2.svg" },
+                  { name: "Client 3", src: "/logos/bw/client3.svg" },
+                  { name: "Client 4", src: "/logos/bw/client4.svg" },
+                  { name: "Client 5", src: "/logos/bw/client5.svg" },
+                  { name: "Client 6", src: "/logos/bw/client6.svg" },
+                ].map((l) => (
+                  <img
+                    key={l.name}
+                    src={l.src}
+                    alt={l.name}
+                    className="mx-auto h-8 w-auto opacity-70 grayscale contrast-125 transition hover:opacity-100 hover:grayscale-0"
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

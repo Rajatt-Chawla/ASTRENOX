@@ -1,67 +1,62 @@
-export default function CoreValues() {
-  const values = [
-    {
-      title: "Client-First Approach",
-      description: "Every solution is tailored to deliver measurable value and ROI for our clients.",
-      icon: "💼"
-    },
-    {
-      title: "Technical Excellence",
-      description: "We maintain the highest standards in AI development and engineering practices.",
-      icon: "⚡"
-    },
-    {
-      title: "Continuous Learning",
-      description: "We stay at the forefront of AI innovation through constant research and development.",
-      icon: "📚"
-    },
-    {
-      title: "Collaborative Spirit",
-      description: "We believe the best solutions emerge from true partnerships and open communication.",
-      icon: "🤝"
-    },
-    {
-      title: "Ethical AI",
-      description: "We're committed to developing AI responsibly, with fairness and transparency.",
-      icon: "⚖️"
-    },
-    {
-      title: "Results-Driven",
-      description: "We measure success by the tangible impact we create for our clients' businesses.",
-      icon: "🎯"
-    }
-  ]
+const values = [
+  { 
+    title: "Client-First Approach", 
+    desc: "Every solution is tailored to deliver measurable value and ROI for our clients.", 
+    icon: "/assets/icons/freepik/client-focus.svg" 
+  },
+  { 
+    title: "Technical Excellence", 
+    desc: "We maintain the highest standards in AI development and engineering practices.", 
+    icon: "/assets/icons/freepik/engineering-ai.svg" 
+  },
+  { 
+    title: "Continuous Learning", 
+    desc: "We stay at the forefront of AI innovation through constant research and development.", 
+    icon: "/assets/icons/freepik/learning.svg" 
+  },
+  { 
+    title: "Collaborative Spirit", 
+    desc: "We believe the best solutions emerge from true partnerships and open communication.", 
+    icon: "/assets/icons/freepik/collaboration.svg" 
+  },
+  { 
+    title: "Ethical AI", 
+    desc: "We're committed to developing AI responsibly, with fairness and transparency.", 
+    icon: "/assets/icons/freepik/ethical-ai.svg" 
+  },
+  { 
+    title: "Results-Driven", 
+    desc: "We measure success by the tangible impact we create for our clients' businesses.", 
+    icon: "/assets/icons/freepik/results.svg" 
+  },
+]
 
+export default function CoreValues() {
   return (
-    <section className="py-20 bg-bg-base">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4 text-center">
-            Core Values
-          </h2>
-          <p className="text-xl text-text-secondary text-center mb-16 max-w-3xl mx-auto">
-            The principles that guide everything we do
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <div 
-                key={index}
-                className="bg-bg-dark p-8 rounded-xl border border-border-subtle hover:border-accent-blue transition-colors duration-300"
-              >
-                <div className="text-4xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold text-text-primary mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-text-secondary">
-                  {value.description}
-                </p>
-              </div>
-            ))}
+    <section className="mx-auto max-w-6xl px-4 py-16">
+      <h2 className="text-center text-3xl md:text-4xl font-extrabold tracking-tight">
+        Core Values
+      </h2>
+      <p className="mt-2 text-center text-white/70">
+        The principles that guide everything we do
+      </p>
+
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {values.map((v) => (
+          <div 
+            key={v.title} 
+            className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center hover:border-sky-400/40 transition group"
+          >
+            <img 
+              src={v.icon} 
+              alt={v.title} 
+              className="mx-auto mb-3 h-14 w-14 object-contain opacity-90 group-hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.25)] transition" 
+            />
+            <h3 className="font-semibold mb-2 text-base">{v.title}</h3>
+            <p className="text-sm text-white/75 leading-relaxed">{v.desc}</p>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   )
 }
-

@@ -70,7 +70,7 @@ export default function TechnologyEcosystem() {
             </Button>
           </motion.div>
 
-          {/* Visual */}
+          {/* Visual - AI Technology Stack */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -78,64 +78,60 @@ export default function TechnologyEcosystem() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="bg-surface-card border border-border-soft rounded-xl p-8 shadow-card">
-              <h3 className="text-xl font-bold text-text-primary mb-6 text-center">AI Technology Stack</h3>
-              
-              {/* AI Models */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-bg-base rounded-lg p-4 border border-border-soft text-center">
-                  <div className="text-sm font-semibold text-accent-primary mb-2">OpenAI</div>
-                  <div className="text-xs text-text-muted">GPT-4, DALL-E</div>
-                </div>
-                <div className="bg-bg-base rounded-lg p-4 border border-border-soft text-center">
-                  <div className="text-sm font-semibold text-accent-secondary mb-2">Anthropic</div>
-                  <div className="text-xs text-text-muted">Claude, Constitutional AI</div>
-                </div>
-                <div className="bg-bg-base rounded-lg p-4 border border-border-soft text-center">
-                  <div className="text-sm font-semibold text-info mb-2">Google</div>
-                  <div className="text-xs text-text-muted">Gemini, PaLM</div>
-                </div>
-                <div className="bg-bg-base rounded-lg p-4 border border-border-soft text-center">
-                  <div className="text-sm font-semibold text-warning mb-2">Meta</div>
-                  <div className="text-xs text-text-muted">Llama, Code Llama</div>
-                </div>
+            <aside className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8 shadow-[0_0_40px_rgba(56,189,248,0.06)]">
+              <h3 className="text-center text-base font-semibold mb-6">AI Technology Stack</h3>
+
+              {/* 2x2 grid — foundation model providers */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {[
+                  { name: "OpenAI", logo: "/logos/openai.svg" },
+                  { name: "Anthropic", logo: "/logos/anthropic.svg" },
+                  { name: "Google", logo: "/logos/google.svg" },
+                  { name: "Meta", logo: "/logos/meta.svg" },
+                ].map((p) => (
+                  <div
+                    key={p.name}
+                    className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-5 hover:border-sky-400/50 transition"
+                  >
+                    <img src={p.logo} alt={p.name} className="h-8 w-auto opacity-90 group-hover:opacity-100" />
+                    <span className="text-sm font-medium text-white/85 group-hover:text-white">{p.name}</span>
+                  </div>
+                ))}
               </div>
 
-              {/* Orchestration Tools */}
-              <div className="border-t border-border-soft pt-6">
-                <div className="text-sm font-semibold text-text-primary mb-4">Orchestration & Integration</div>
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-bg-base rounded-lg p-3 border border-border-soft text-center">
-                    <div className="text-xs font-semibold text-accent-primary">LangGraph</div>
+              {/* Orchestration & Integration */}
+              <h4 className="text-center text-xs uppercase tracking-wide text-white/60 mb-3">
+                Orchestration &amp; Integration
+              </h4>
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                {[
+                  { name: "LangGraph", logo: "/logos/langgraph.svg" },
+                  { name: "CrewAI", logo: "/logos/crewai.svg" },
+                  { name: "n8n", logo: "/logos/n8n.svg" },
+                ].map((t) => (
+                  <div
+                    key={t.name}
+                    className="group flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2 hover:border-cyan-400/50 transition"
+                  >
+                    <img src={t.logo} alt={t.name} className="h-6 w-auto opacity-90 group-hover:opacity-100" />
+                    <span className="text-sm font-medium text-white/85 group-hover:text-white">{t.name}</span>
                   </div>
-                  <div className="bg-bg-base rounded-lg p-3 border border-border-soft text-center">
-                    <div className="text-xs font-semibold text-accent-secondary">CrewAI</div>
-                  </div>
-                  <div className="bg-bg-base rounded-lg p-3 border border-border-soft text-center">
-                    <div className="text-xs font-semibold text-info">n8n</div>
-                  </div>
-                </div>
+                ))}
               </div>
 
               {/* Enterprise Features */}
-              <div className="border-t border-border-soft pt-6">
-                <div className="text-sm font-semibold text-text-primary mb-4">Enterprise Features</div>
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span className="text-xs text-text-secondary">Security & Compliance</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span className="text-xs text-text-secondary">Observability & Monitoring</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span className="text-xs text-text-secondary">Scalable Infrastructure</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <ul className="space-y-2 text-sm text-white/75">
+                <li className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-sky-400" /> Security &amp; Compliance
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-indigo-400" /> Observability &amp; Monitoring
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-cyan-400" /> Scalable Infrastructure
+                </li>
+              </ul>
+            </aside>
 
             {/* Floating Elements */}
             <motion.div

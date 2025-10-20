@@ -1,0 +1,31 @@
+==================================================
+  NOUPE CHATBOT - ENVIRONMENT SETUP REQUIRED
+==================================================
+
+ACTION REQUIRED: Create .env.local file
+
+1. Create a new file named: .env.local
+   Location: Root of your project (same level as package.json)
+
+2. Add this content:
+
+NEXT_PUBLIC_NOUPE_BOT_ID=YOUR_BOT_ID_HERE
+
+3. Replace YOUR_BOT_ID_HERE with your actual Bot ID from Noupe Dashboard
+
+4. Restart your dev server:
+   npm run dev
+
+==================================================
+
+WHERE TO GET YOUR BOT ID:
+1. Go to: https://dashboard.noupe.ai
+2. Navigate to: Train → Customize → Get Your Code
+3. Copy the Bot ID from the script snippet
+
+IMPORTANT:
+- .env.local is already in .gitignore (don't commit it)
+- For production, add the same variable to your hosting platform
+
+See NOUPE_SETUP.md for detailed instructions.
+

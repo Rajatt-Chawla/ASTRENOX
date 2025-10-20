@@ -2,9 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { 
-  Mail, 
-  Phone, 
-  MapPin, 
   Twitter, 
   Linkedin, 
   Github,
@@ -55,30 +52,38 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="lg:col-span-1"
+              className="lg:col-span-1 space-y-4"
             >
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold gradient-text mb-4">Astrenox</h3>
-                <p className="text-text-secondary leading-relaxed mb-6">
-                  We create AI-first digital transformations that drive engineering disruption and measurable outcomes. 
-                  Your success is our mission.
-                </p>
-              </div>
+              <a href="/" className="text-lg font-semibold">
+                <span className="bg-gradient-to-r from-violet-400 to-sky-400 bg-clip-text text-transparent">
+                  Astrenox
+                </span>
+              </a>
+              <p className="max-w-xs text-sm text-white/70">
+                We create AI-first digital transformations that drive engineering disruption and measurable outcomes.
+              </p>
 
-              {/* Contact Info */}
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3 text-text-secondary">
-                  <Mail className="w-4 h-4 text-accent-primary" />
-                  <span>hello@astrenox.com</span>
-                </div>
-                <div className="flex items-center space-x-3 text-text-secondary">
-                  <Phone className="w-4 h-4 text-accent-primary" />
-                  <span>+91 (XXX) XXX-XXXX</span>
-                </div>
-                <div className="flex items-center space-x-3 text-text-secondary">
-                  <MapPin className="w-4 h-4 text-accent-primary" />
-                  <span>Ghaziabad, Uttar Pradesh, India</span>
-                </div>
+              <div className="mt-4 space-y-2 text-sm">
+                <p>
+                  <a className="hover:underline" href="mailto:Prajwal@astrentech.com">
+                    Prajwal@astrentech.com
+                  </a>
+                </p>
+                <p>
+                  <a className="hover:underline" href="tel:+918384016763">
+                    +91 8384016763
+                  </a>
+                </p>
+                <p className="text-white/80">
+                  <a 
+                    className="hover:underline" 
+                    href="https://maps.google.com/?q=C-18%20Sector%20105%20Noida" 
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
+                    C-18, Sector 105, Noida
+                  </a>
+                </p>
               </div>
             </motion.div>
 

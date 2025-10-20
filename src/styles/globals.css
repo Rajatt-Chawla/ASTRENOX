@@ -200,3 +200,30 @@ button, a, input, textarea, select {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
 }
+
+/* Noupe Chatbot Widget Styles */
+/* Ensure widget doesn't overlap footer CTAs or other fixed elements */
+#noupe-widget-container {
+  z-index: 60 !important;
+  bottom: 20px !important;
+  right: 20px !important;
+}
+
+/* Adjust widget positioning on mobile */
+@media (max-width: 768px) {
+  #noupe-widget-container {
+    bottom: 80px !important; /* Add space for mobile navigation if needed */
+    right: 16px !important;
+  }
+}
+
+/* Ensure widget button doesn't interfere with scroll */
+[data-noupe-widget-button] {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 24px rgba(34, 211, 238, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-noupe-widget-button]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 0 32px rgba(34, 211, 238, 0.3);
+}

@@ -27,11 +27,12 @@ export default function Pricing() {
           className="bg-surface-card border border-border-soft rounded-xl p-8"
         >
           <div className="text-center mb-8">
+            <div className="text-sm text-white/80 mb-2">Starts from</div>
             <div className="text-display-sm font-bold text-text-primary mb-4">
-              Starting at <span className="gradient-text">$25K–$60K</span>
+              <span className="gradient-text">₹5k</span>
             </div>
             <p className="text-text-secondary">
-              Depending on complexity, integrations, and AI features
+              Simple monthly start plan. No range, no complexity.
             </p>
           </div>
 
