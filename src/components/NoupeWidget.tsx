@@ -4,62 +4,16 @@ import { useEffect, useState } from "react"
 
 export default function NoupeWidget() {
   const [showTestButton, setShowTestButton] = useState(false)
-  const botId = process.env.NEXT_PUBLIC_NOUPE_BOT_ID
 
   useEffect(() => {
-    // Show test button if Bot ID is not configured
-    if (!botId || botId === "YOUR_BOT_ID" || botId === undefined) {
-      setShowTestButton(true)
-      console.warn("⚠️ Noupe Bot ID not configured. Set NEXT_PUBLIC_NOUPE_BOT_ID in .env.local")
-      return
-    }
-
-    // Lazy load after first idle to avoid blocking LCP
-    const onIdle = () => {
-      if (document.getElementById("noupe-widget")) return
-      
-      console.log("🤖 Loading Noupe widget with Bot ID:", botId)
-      
-      const s = document.createElement("script")
-      s.id = "noupe-widget"
-      s.src = "https://cdn.noupe.ai/widget.js"
-      s.defer = true
-      s.setAttribute("data-noupe-bot-id", botId)
-      s.setAttribute("data-theme", "dark")
-      s.setAttribute("data-color", "#22d3ee")
-      s.setAttribute("data-position", "bottom-right")
-      s.setAttribute("data-label", "Chat with Astrenox")
-      
-      s.onload = () => {
-        console.log("✅ Noupe widget loaded successfully")
-      }
-      
-      s.onerror = () => {
-        console.error("❌ Failed to load Noupe widget")
-        setShowTestButton(true)
-      }
-      
-      document.body.appendChild(s)
-    }
-    
-    if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(onIdle)
-    } else {
-      setTimeout(onIdle, 800)
-    }
-
-    // Cleanup on unmount
-    return () => {
-      const script = document.getElementById("noupe-widget")
-      if (script) {
-        script.remove()
-      }
-    }
-  }, [botId])
+    // Noupe widget is currently disabled
+    setShowTestButton(true)
+    console.log("ℹ️ Noupe widget is currently disabled")
+  }, [])
 
   return (
     <>
-      {/* Test button when Bot ID is not configured */}
+      {/* Contact button when widget is disabled */}
       {showTestButton && (
         <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 60 }}>
           <a 
@@ -114,4 +68,3 @@ export default function NoupeWidget() {
     </>
   )
 }
-

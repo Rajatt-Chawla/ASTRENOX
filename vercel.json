@@ -8,8 +8,5 @@
     "app/**": {
       "maxDuration": 30
     }
-  },
-  "env": {
-    "NEXT_PUBLIC_NOUPE_BOT_ID": "@noupe_bot_id"
   }
 }
