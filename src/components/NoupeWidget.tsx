@@ -8,7 +8,7 @@ export default function NoupeWidget() {
 
   useEffect(() => {
     // Show test button if Bot ID is not configured
-    if (!botId || botId === "YOUR_BOT_ID") {
+    if (!botId || botId === "YOUR_BOT_ID" || botId === undefined) {
       setShowTestButton(true)
       console.warn("⚠️ Noupe Bot ID not configured. Set NEXT_PUBLIC_NOUPE_BOT_ID in .env.local")
       return
